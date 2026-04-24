@@ -234,7 +234,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 3.5, duration: 0.8 }}
-          className="flex items-center justify-center gap-8 mt-16 flex-wrap"
+          className="flex items-center justify-center gap-6 md:gap-8 mt-12 md:mt-16 flex-wrap"
         >
           {[
             { value: "8", label: "Royal Branches" },

@@ -48,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${baloo.variable} ${lato.variable}`}>
-      <body className="bg-charcoal text-cream overflow-x-hidden">
+      <body className="bg-[#1A1A1A] text-[#FFF8E7] overflow-x-hidden">
         <LenisProvider>
           <CustomCursor />
           {children}

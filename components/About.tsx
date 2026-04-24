@@ -96,7 +96,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative py-32 overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
       style={{ background: "linear-gradient(180deg, #1A1A1A 0%, #12080000 50%, #1A1A1A 100%)" }}
     >
       {/* Background accent */}
@@ -124,7 +124,7 @@ export default function About() {
         </div>
 
         {/* Split layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Story */}
           <div ref={leftRef} className="space-y-8">
             {/* Royal quote block */}

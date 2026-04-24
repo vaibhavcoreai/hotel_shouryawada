@@ -80,7 +80,7 @@ export default function Branches() {
     <section
       ref={sectionRef}
       id="branches"
-      className="relative py-32 overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
       style={{
         background:
           "linear-gradient(180deg, #1A1A1A 0%, #1A0E00 50%, #1A1A1A 100%)",

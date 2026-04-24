@@ -170,13 +170,13 @@ export default function FullMenu() {
             >
               <button
                 onClick={() => setOpenCategory(openCategory === category.category ? null : category.category)}
-                className="w-full flex items-center justify-between p-6 text-left transition-colors duration-300 cursor-none hover:bg-white/[0.02]"
+                className="w-full flex items-center justify-between p-4 md:p-6 text-left transition-colors duration-300 cursor-none hover:bg-white/[0.02]"
                 style={{
                   background: openCategory === category.category ? "rgba(255,248,231,0.03)" : "transparent",
                 }}
               >
                 <h3
-                  className="font-heading font-bold text-xl uppercase tracking-wider"
+                  className="font-heading font-bold text-lg md:text-xl uppercase tracking-wider pr-4"
                   style={{ color: "#FFF8E7" }}
                 >
                   {category.category}
@@ -198,7 +198,7 @@ export default function FullMenu() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="p-6 pt-2 pb-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 border-t" style={{ borderColor: "rgba(201,168,76,0.1)" }}>
+                    <div className="p-4 md:p-6 pt-2 pb-6 md:pb-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-8 border-t" style={{ borderColor: "rgba(201,168,76,0.1)" }}>
                       {category.items.map((item, i) => (
                         <div key={i} className="flex flex-col">
                           <h4 className="font-heading font-bold text-lg mb-1" style={{ color: "#C9A84C" }}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -15,6 +15,10 @@ const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
+
+  const handleIntroComplete = useCallback(() => {
+    setIntroComplete(true);
+  }, []);
 
   // Prevent scroll during intro animation
   useEffect(() => {
@@ -31,15 +35,10 @@ export default function Home() {
   return (
     <>
       {/* Cinematic intro overlay — unmounts after animation */}
-      <PageIntro onComplete={() => setIntroComplete(true)} />
+      {!introComplete && <PageIntro onComplete={handleIntroComplete} />}
 
       {/* Main site — always in DOM but invisible until intro fades */}
-      <main
-        style={{
-          opacity: introComplete ? 1 : 0,
-          transition: "opacity 0.5s ease",
-        }}
-      >
+      <main>
         <Navbar />
 
         {/* 1. Hero */}

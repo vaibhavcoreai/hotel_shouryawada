@@ -130,7 +130,7 @@ export default function Dishes() {
     <section
       ref={sectionRef}
       id="dishes"
-      className="relative py-32 overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
       style={{ background: "#111008" }}
     >
       {/* Atmospheric top glow */}
@@ -157,7 +157,7 @@ export default function Dishes() {
             <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
           </div>
           <p
-            className="font-body text-sm md:text-base max-w-sm text-right"
+            className="font-body text-sm md:text-base max-w-sm text-left md:text-right"
             style={{ color: "rgba(255,248,231,0.45)", lineHeight: 1.7 }}
           >
             Each dish is a battle cry. Every plate — a royal banquet.
@@ -169,7 +169,7 @@ export default function Dishes() {
           {DISHES.map((dish, i) => (
             <motion.div
               key={i}
-              className="dish-card group relative flex flex-col p-8 rounded-sm overflow-hidden cursor-none gsap-animated"
+              className="dish-card group relative flex flex-col p-6 md:p-8 rounded-sm overflow-hidden cursor-none gsap-animated"
               style={{
                 background:
                   "linear-gradient(180deg, rgba(26,14,0,0.4) 0%, rgba(13,8,0,0.8) 100%)",

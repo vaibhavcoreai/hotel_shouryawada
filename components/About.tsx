@@ -187,16 +187,6 @@ export default function About() {
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              
-              {/* Floating Badge */}
-              <div 
-                className="absolute bottom-6 right-6 p-4 backdrop-blur-md border border-gold/30 rounded-sm text-center"
-                style={{ background: "rgba(26,14,0,0.6)" }}
-              >
-                <p className="font-heading text-xl font-bold leading-tight" style={{ color: "#C9A84C" }}>
-                  ESTD.<br/>2019
-                </p>
-              </div>
             </div>
 
             {/* Decorative elements */}

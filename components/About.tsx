@@ -4,23 +4,24 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import { Shield, Award, Users } from "lucide-react";
 
 const PILLARS = [
   {
     icon: Shield,
     title: "Warrior Heritage",
-    desc: "Every dish carries the spirit of Maratha valor — bold, unapologetic, unforgettable.",
+    desc: "Bold, unapologetic spirit of Maratha valor.",
   },
   {
     icon: Award,
     title: "Royal Recipes",
-    desc: "Slow-roasted Raan marinated in secret spices, perfected over generations.",
+    desc: "Slow-roasted Raan perfected over generations.",
   },
   {
     icon: Users,
     title: "Community Feast",
-    desc: "From Handewadi to Nashik — over 930K families call Shauryawada their second home.",
+    desc: "Over 930K families call us their second home.",
   },
 ];
 
@@ -123,9 +124,9 @@ export default function About() {
         </div>
 
         {/* Split layout */}
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Story */}
-          <div ref={leftRef} className="gsap-animated space-y-6">
+          <div ref={leftRef} className="gsap-animated space-y-8">
             {/* Royal quote block */}
             <div
               className="relative pl-6 py-4"
@@ -145,94 +146,68 @@ export default function About() {
               </p>
             </div>
 
-            <p
-              className="font-body text-base md:text-lg leading-relaxed"
-              style={{ color: "rgba(255,248,231,0.75)" }}
-            >
-              Born from the red earth of Maharashtra, Hotel Shauryawada carries the soul of the
-              Maratha warrior — fiercely proud, deeply rooted, and generous to the core. We didn&apos;t
-              just open a dhaba; we built a kingdom on a plate.
-            </p>
-            <p
-              className="font-body text-base md:text-lg leading-relaxed"
-              style={{ color: "rgba(255,248,231,0.75)" }}
-            >
-              Our signature{" "}
-              <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span> and{" "}
-              <span style={{ color: "#FF6B00", fontWeight: 700 }}>Chicken Raan</span> are not
-              merely dishes — they are rituals. Slow-marinated overnight in Kolhapuri spices,
-              slow-roasted until the meat surrenders from the bone in smoky, golden perfection.
-            </p>
-            <p
-              className="font-body text-base leading-relaxed"
-              style={{ color: "rgba(255,248,231,0.5)" }}
-            >
-              Eight branches. One soul. From Handewadi where it all began, to Nashik, Bhosari,
-              Ahilyanagar and beyond — every plate tells the same story.
-            </p>
-          </div>
-
-          {/* Right: Visual pillars */}
-          <div ref={rightRef} className="gsap-animated space-y-6">
-            {PILLARS.map((pillar, i) => {
-              const Icon = pillar.icon;
-              return (
-                <motion.div
-                  key={i}
-                  whileHover={{
-                    x: 8,
-                    boxShadow: "0 8px 40px rgba(201,168,76,0.15)",
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="flex items-start gap-5 p-5 rounded-sm cursor-none"
-                  style={{
-                    background: "rgba(255,248,231,0.03)",
-                    border: "1px solid rgba(201,168,76,0.12)",
-                  }}
-                >
-                  <div
-                    className="flex-shrink-0 w-12 h-12 rounded-sm flex items-center justify-center"
-                    style={{ background: "rgba(255,107,0,0.12)", border: "1px solid rgba(255,107,0,0.3)" }}
-                  >
-                    <Icon size={20} color="#FF6B00" />
-                  </div>
-                  <div>
-                    <h3
-                      className="font-heading font-bold text-lg mb-1"
-                      style={{ color: "#C9A84C" }}
-                    >
-                      {pillar.title}
-                    </h3>
-                    <p className="font-body text-sm leading-relaxed" style={{ color: "rgba(255,248,231,0.6)" }}>
-                      {pillar.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-
-            {/* Decorative brand stamp */}
-            <div
-              className="mt-4 p-4 text-center rounded-sm"
-              style={{
-                background: "linear-gradient(135deg, rgba(139,69,19,0.2), rgba(201,168,76,0.08))",
-                border: "1px solid rgba(201,168,76,0.2)",
-              }}
-            >
+            <div className="space-y-6">
               <p
-                className="font-heading text-2xl font-bold"
-                style={{ color: "#C9A84C" }}
+                className="font-body text-base md:text-lg leading-relaxed"
+                style={{ color: "rgba(255,248,231,0.75)" }}
               >
-                ॥ शौर्यवाडा ॥
+                Born from the red earth of Maharashtra, Hotel Shauryawada carries the soul of the
+                Maratha warrior — fiercely proud, deeply rooted, and generous to the core. We built a kingdom on a plate.
               </p>
               <p
-                className="text-xs tracking-[0.25em] uppercase font-body mt-1"
-                style={{ color: "rgba(255,248,231,0.4)" }}
+                className="font-body text-base md:text-lg leading-relaxed"
+                style={{ color: "rgba(255,248,231,0.75)" }}
               >
-                Ruling Hearts Across Maharashtra Since Day One
+                Our signature <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span> and <span style={{ color: "#FF6B00", fontWeight: 700 }}>Chicken Raan</span> are not merely dishes — they are rituals, slow-roasted until the meat surrenders in smoky, golden perfection.
               </p>
             </div>
+
+            {/* Compact Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              {PILLARS.map((pillar, i) => (
+                <div key={i} className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <pillar.icon size={16} color="#FF6B00" />
+                    <h4 className="font-heading font-bold text-sm uppercase tracking-wider" style={{ color: "#C9A84C" }}>{pillar.title}</h4>
+                  </div>
+                  <p className="text-[11px] font-body" style={{ color: "rgba(255,248,231,0.4)" }}>{pillar.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Right: Visual Section */}
+          <div ref={rightRef} className="gsap-animated relative">
+            <div className="relative aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden border border-gold/20 shadow-2xl">
+              <Image
+                src="/about.png"
+                alt="Shauryawada Restaurant Ambience"
+                fill
+                className="object-cover transition-transform duration-700 hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              
+              {/* Floating Badge */}
+              <div 
+                className="absolute bottom-6 right-6 p-4 backdrop-blur-md border border-gold/30 rounded-sm text-center"
+                style={{ background: "rgba(26,14,0,0.6)" }}
+              >
+                <p className="font-heading text-xl font-bold leading-tight" style={{ color: "#C9A84C" }}>
+                  ESTD.<br/>2019
+                </p>
+              </div>
+            </div>
+
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-gold/40" />
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-gold/40" />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
         </div>
       </div>
     </section>

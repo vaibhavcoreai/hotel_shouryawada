@@ -2,26 +2,183 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Google Fonts ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap');
+
+/* ─── CSS Custom Properties ──────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --saffron: #FF6B00;
+  --ochre: #8B4513;
+  --cream: #FFF8E7;
+  --charcoal: #1A1A1A;
+  --gold: #C9A84C;
+  --gold-light: #E8C46A;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Reset & Base ────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles scrolling */
+  overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--charcoal);
+  color: var(--cream);
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+  cursor: none; /* Custom cursor takes over on desktop */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@media (max-width: 768px) {
+  body { cursor: auto; }
+}
+
+/* ─── Typography ──────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo 2', cursive;
+}
+
+/* ─── GSAP will-change hints ──────────────────────────────────── */
+.gsap-animated {
+  will-change: transform, opacity;
+}
+
+/* ─── Gold Underline ──────────────────────────────────────────── */
+.section-underline {
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--saffron));
+  transform-origin: left;
+  border-radius: 2px;
+}
+
+/* ─── Maratha Border Pattern (SVG-based decorative divider) ──── */
+.maratha-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold) 20%,
+    var(--saffron) 50%,
+    var(--gold) 80%,
+    transparent 100%
+  );
+  position: relative;
+}
+
+.maratha-divider::before,
+.maratha-divider::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 10px;
+}
+.maratha-divider::before { left: 30%; }
+.maratha-divider::after  { right: 30%; }
+
+/* ─── Texture Overlay ─────────────────────────────────────────── */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--gold), var(--saffron));
+  border-radius: 2px;
+}
+
+/* ─── Selection ───────────────────────────────────────────────── */
+::selection {
+  background: var(--saffron);
+  color: var(--cream);
+}
+
+/* ─── Lenis smooth scroll fix ─────────────────────────────────── */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-scrolling iframe { pointer-events: none; }
+
+/* ─── Ember canvas ────────────────────────────────────────────── */
+#ember-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Nav link hover underline ────────────────────────────────── */
+.nav-link {
+  position: relative;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream);
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.nav-link:hover::after { width: 100%; }
+.nav-link:hover { color: var(--gold); }
+
+/* ─── Dish card ───────────────────────────────────────────────── */
+.dish-card {
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+}
+
+/* ─── Branch chip ─────────────────────────────────────────────── */
+.branch-chip {
+  will-change: transform, background-color;
+  backface-visibility: hidden;
+}
+
+/* ─── Page intro overlay ──────────────────────────────────────── */
+#page-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* ─── Glow text ───────────────────────────────────────────────── */
+.glow-gold {
+  text-shadow: 0 0 30px rgba(201,168,76,0.5), 0 0 60px rgba(201,168,76,0.2);
+}
+.glow-saffron {
+  text-shadow: 0 0 30px rgba(255,107,0,0.5);
 }

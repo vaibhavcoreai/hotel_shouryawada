@@ -1,101 +1,118 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import PageIntro from "@/components/PageIntro";
+
+// Lazy-load below-fold sections for performance
+const About = dynamic(() => import("@/components/About"), { ssr: false });
+const Dishes = dynamic(() => import("@/components/Dishes"), { ssr: false });
+const Branches = dynamic(() => import("@/components/Branches"), { ssr: false });
+const YouTube = dynamic(() => import("@/components/YouTube"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [introComplete, setIntroComplete] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  // Prevent scroll during intro animation
+  useEffect(() => {
+    if (!introComplete) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [introComplete]);
+
+  return (
+    <>
+      {/* Cinematic intro overlay — unmounts after animation */}
+      <PageIntro onComplete={() => setIntroComplete(true)} />
+
+      {/* Main site — always in DOM but invisible until intro fades */}
+      <main
+        style={{
+          opacity: introComplete ? 1 : 0,
+          transition: "opacity 0.5s ease",
+        }}
+      >
+        <Navbar />
+
+        {/* 1. Hero */}
+        <Hero />
+
+        {/* Maratha decorative section divider */}
+        <SectionDivider />
+
+        {/* 2. About */}
+        <About />
+
+        <SectionDivider />
+
+        {/* 3. Signature Dishes */}
+        <Dishes />
+
+        <SectionDivider />
+
+        {/* 4. Branches */}
+        <Branches />
+
+        <SectionDivider />
+
+        {/* 5. YouTube */}
+        <YouTube />
+
+        {/* 6. Footer / Contact */}
+        <Footer />
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    </>
+  );
+}
+
+// ─── Reusable Maratha-style section divider ────────────────────
+function SectionDivider() {
+  return (
+    <div className="relative flex items-center justify-center py-2 overflow-hidden">
+      {/* Left line */}
+      <div
+        className="flex-1 h-px max-w-xs"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, rgba(201,168,76,0.3))",
+        }}
+      />
+      {/* Center ornament */}
+      <div className="flex items-center gap-2 px-4">
+        <span style={{ color: "rgba(201,168,76,0.35)", fontSize: "8px" }}>◆</span>
+        <div
+          className="w-12 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(201,168,76,0.3), rgba(255,107,0,0.5), rgba(201,168,76,0.3))",
+          }}
+        />
+        <span style={{ color: "#FF6B00", fontSize: "12px" }}>◆</span>
+        <div
+          className="w-12 h-px"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(201,168,76,0.3), rgba(255,107,0,0.5), rgba(201,168,76,0.3))",
+          }}
+        />
+        <span style={{ color: "rgba(201,168,76,0.35)", fontSize: "8px" }}>◆</span>
+      </div>
+      {/* Right line */}
+      <div
+        className="flex-1 h-px max-w-xs"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(201,168,76,0.3), transparent)",
+        }}
+      />
     </div>
   );
 }

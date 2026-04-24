@@ -163,7 +163,7 @@ export default function Hero() {
           <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span>{" "}
           &amp;{" "}
           <span style={{ color: "#FF6B00", fontWeight: 700 }}>Chicken Raan</span>
-          {" "}— cooked the Maratha way. Eight cities. One legacy.
+          {" "}— cooked the Marathaian way. Eight cities. One legacy.
         </motion.p>
 
         {/* Gold divider line */}

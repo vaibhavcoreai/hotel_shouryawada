@@ -113,20 +113,20 @@ export default function About() {
         <div className="mb-20">
           <h2
             ref={titleRef}
-            className="section-title font-heading font-extrabold gsap-animated"
+            className="section-title font-heading font-extrabold"
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#FFF8E7" }}
           >
             The{" "}
             <span style={{ color: "#FF6B00" }}>Shauryawada</span>{" "}
             Legacy
           </h2>
-          <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
+          <span ref={underlineRef} className="section-underline mt-4" />
         </div>
 
         {/* Split layout */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left: Story */}
-          <div ref={leftRef} className="gsap-animated space-y-8">
+          <div ref={leftRef} className="space-y-8">
             {/* Royal quote block */}
             <div
               className="relative pl-6 py-4"
@@ -177,7 +177,7 @@ export default function About() {
           </div>
 
           {/* Right: Visual Section */}
-          <div ref={rightRef} className="gsap-animated relative">
+          <div ref={rightRef} className="relative">
             <div className="relative aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden border border-gold/20 shadow-2xl">
               <Image
                 src="/about.png"
@@ -203,11 +203,6 @@ export default function About() {
             <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-gold/40" />
             <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-gold/40" />
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
         </div>
       </div>
     </section>

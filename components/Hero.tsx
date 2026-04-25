@@ -6,7 +6,6 @@ import Image from "next/image";
 import { ChevronDown, Star, Utensils } from "lucide-react";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import EmberCanvas from "./EmberCanvas";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -100,8 +99,6 @@ export default function Hero() {
         />
       </div>
 
-      {/* Ember particles */}
-      <EmberCanvas />
 
       {/* Top gradient fade */}
       <div

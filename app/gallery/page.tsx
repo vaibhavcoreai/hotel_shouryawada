@@ -38,12 +38,18 @@ const galleryImages = [
   "1-ybc2eiovpo.jpg", "1-zqevtp3qxy.jpg"
 ];
 
-const items = galleryImages.map((img, index) => ({
-  id: index.toString(),
-  img: `/Masonry/${img}`,
-  url: `/Masonry/${img}`, // Open image in new tab or just keep it
-  height: index % 2 === 0 ? 600 : 400, // Varying heights for masonry effect
-}));
+const items = galleryImages.map((img, index) => {
+  // Bento-style varied heights
+  const heights = [400, 600, 500, 700, 450, 650];
+  const h = heights[index % heights.length];
+  
+  return {
+    id: index.toString(),
+    img: `/Masonry/${img}`,
+    url: `/Masonry/${img}`,
+    height: h,
+  };
+});
 
 export default function GalleryPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -98,6 +104,7 @@ export default function GalleryPage() {
             blurToFocus={true}
             colorShiftOnHover={true}
             onItemClick={handleItemClick}
+            gap={12}
           />
         </div>
       </section>

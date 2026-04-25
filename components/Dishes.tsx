@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Flame, Crown } from "lucide-react";
+import { Flame, Crown, ChevronRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const DISHES = [
   {
@@ -235,21 +236,55 @@ export default function Dishes() {
         </div>
 
         {/* CTA Row */}
-        <div className="mt-16 text-center">
-          <motion.a
-            href="/menu"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-3 px-8 py-3 font-body text-sm tracking-widest uppercase border cursor-none"
-            style={{
-              borderColor: "rgba(201,168,76,0.4)",
-              color: "#C9A84C",
-            }}
-          >
-            <Crown size={14} />
-            Explore The Full Menu
-            <Crown size={14} />
-          </motion.a>
+        <div className="mt-16 text-center flex flex-col items-center gap-8">
+          <div className="flex items-center gap-4 opacity-40">
+            <div className="w-16 h-px" style={{ background: "linear-gradient(90deg, transparent, #C9A84C)" }}></div>
+            <Crown size={12} color="#C9A84C" />
+            <div className="w-16 h-px" style={{ background: "linear-gradient(90deg, #C9A84C, transparent)" }}></div>
+          </div>
+          
+          <Link href="/menu" className="group relative inline-flex items-center gap-4 cursor-none">
+            <motion.div
+              initial="initial"
+              whileHover="hover"
+              className="flex items-center gap-4"
+            >
+              <motion.div
+                variants={{
+                  initial: { scale: 1, y: 0 },
+                  hover: { scale: 1.05, y: -2 }
+                }}
+                className="px-8 py-4 rounded-sm text-xs font-body uppercase tracking-[0.3em] font-black relative overflow-hidden shadow-[0_15px_40px_rgba(255,107,0,0.12)]"
+                style={{
+                  background: "linear-gradient(135deg, #FF6B00, #C9A84C)",
+                  color: "#1A1A1A",
+                }}
+              >
+                <span className="relative z-10">Explore full Menu</span>
+                
+                {/* Shimmer Effect */}
+                <motion.div
+                  className="absolute inset-0 bg-white/30 -translate-x-full skew-x-12"
+                  animate={{ x: ["200%", "-200%"] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
+                />
+              </motion.div>
+              
+              <motion.div 
+                variants={{
+                  initial: { x: 0, rotate: -15, scale: 1 },
+                  hover: { x: 8, rotate: 0, scale: 1.1 }
+                }}
+                className="w-11 h-11 rounded-full flex items-center justify-center border border-gold/30 bg-white/20 backdrop-blur-md shadow-lg transition-all group-hover:border-saffron group-hover:bg-white/40"
+              >
+                <ArrowRight size={20} color="#1A1A1A" />
+              </motion.div>
+            </motion.div>
+          </Link>
+
+          <p className="font-heading text-xs uppercase tracking-widest text-gold/60">
+            Over 150+ Royal Delicacies Await
+          </p>
         </div>
       </div>
 

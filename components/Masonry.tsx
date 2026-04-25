@@ -75,6 +75,7 @@ interface MasonryProps {
   blurToFocus?: boolean;
   colorShiftOnHover?: boolean;
   onItemClick?: (item: Item, index: number) => void;
+  gap?: number;
 }
 
 const Masonry: React.FC<MasonryProps> = ({
@@ -87,12 +88,13 @@ const Masonry: React.FC<MasonryProps> = ({
   hoverScale = 0.95,
   blurToFocus = true,
   colorShiftOnHover = false,
-  onItemClick
+  onItemClick,
+  gap = 16
 }) => {
   const columns = useMedia(
     ['(min-width:1500px)', '(min-width:1000px)', '(min-width:600px)', '(min-width:400px)'],
     [5, 4, 3, 2],
-    1
+    2
   );
 
   const [containerRef, { width }] = useMeasure<HTMLDivElement>();
@@ -134,7 +136,6 @@ const Masonry: React.FC<MasonryProps> = ({
   const { grid, containerHeight } = useMemo(() => {
     if (!width) return { grid: [], containerHeight: 0 };
     const colHeights = new Array(columns).fill(0);
-    const gap = 16;
     const totalGaps = (columns - 1) * gap;
     const columnWidth = (width - totalGaps) / columns;
 

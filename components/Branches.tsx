@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 const BRANCHES = [
   { name: "Handewadi", note: "The Origin" },
@@ -96,25 +97,50 @@ export default function Branches() {
       />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="mb-6">
-          <h2
-            ref={titleRef}
-            className="section-title font-heading font-extrabold gsap-animated"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Left Side: Family/Heritage Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-5 relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl"
           >
-            Our Kingdom Spans{" "}
-            <span style={{ color: "#FF6B00" }}>Maharashtra</span>
-          </h2>
-          <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
-        </div>
-        <p
-          className="font-body mb-16 max-w-xl"
-          style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
-        >
-          From the red hills of Kolhapur country to the vineyards of Nashik — the Shauryawada
-          throne sits tall in eight cities.
-        </p>
+            <Image
+              src="/family.jpeg"
+              alt="The Shauryawada Family"
+              fill
+              className="object-cover"
+              sizes="(max-w-768px) 100vw, 40vw"
+            />
+            {/* Overlay for premium look */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="font-heading text-white text-lg font-bold">A Legacy of Taste</p>
+              <p className="font-body text-white/70 text-sm italic">Our family serving yours since generations.</p>
+            </div>
+          </motion.div>
+
+          {/* Right Side: Content */}
+          <div className="lg:col-span-7">
+            {/* Header */}
+            <div className="mb-6">
+              <h2
+                ref={titleRef}
+                className="section-title font-heading font-extrabold gsap-animated"
+                style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#1A1A1A" }}
+              >
+                Our Kingdom Spans <span style={{ color: "#FF6B00" }}>Maharashtra</span>
+              </h2>
+              <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
+            </div>
+            <p
+              className="font-body mb-10 text-base md:text-lg opacity-80"
+              style={{ color: "#1A1A1A", lineHeight: 1.7 }}
+            >
+              From the red hills of Kolhapur country to the vineyards of Nashik — the Shauryawada
+              throne sits tall in eight cities.
+            </p>
 
         {/* Branch chip grid — Framer Motion stagger */}
         <motion.div
@@ -188,6 +214,8 @@ export default function Branches() {
             </span>
           </div>
         </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

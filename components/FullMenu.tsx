@@ -225,7 +225,7 @@ export default function FullMenu() {
             className="font-heading font-extrabold uppercase tracking-widest mb-4"
             style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", color: "#C9A84C" }}
           >
-            The Royal Darbar Menu
+            Menu
           </h2>
           <div className="w-24 h-px mx-auto" style={{ background: "rgba(201,168,76,0.5)" }} />
         </div>

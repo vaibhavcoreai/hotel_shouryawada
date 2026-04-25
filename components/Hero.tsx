@@ -100,13 +100,6 @@ export default function Hero() {
       </div>
 
 
-      {/* Top gradient fade */}
-      <div
-        className="absolute top-0 left-0 right-0 h-32 z-10"
-        style={{
-          background: "linear-gradient(to bottom, rgba(255,248,231,0.8), transparent)",
-        }}
-      />
 
       {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
@@ -263,12 +256,13 @@ export default function Hero() {
         >
           Scroll
         </span>
-        <motion.div
+        <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+          style={{ display: 'block' }}
         >
           <ChevronDown size={18} color="#8B4513" />
-        </motion.div>
+        </motion.span>
       </motion.button>
 
       {/* Bottom gradient */}

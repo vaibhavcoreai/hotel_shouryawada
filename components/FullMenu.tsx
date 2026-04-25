@@ -196,18 +196,19 @@ export default function FullMenu() {
                   background: openCategory === category.category ? "rgba(26,26,26,0.03)" : "transparent",
                 }}
               >
-                <h3
-                  className="font-heading font-bold text-lg md:text-xl uppercase tracking-wider pr-4"
+                <span
+                  className="font-heading font-bold text-lg md:text-xl uppercase tracking-wider pr-4 block"
                   style={{ color: "#1A1A1A" }}
                 >
                   {category.category}
-                </h3>
-                <motion.div
+                </span>
+                <motion.span
                   animate={{ rotate: openCategory === category.category ? 180 : 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
+                  style={{ display: 'block' }}
                 >
                   <ChevronDown color="#C9A84C" size={24} />
-                </motion.div>
+                </motion.span>
               </button>
 
               <AnimatePresence>

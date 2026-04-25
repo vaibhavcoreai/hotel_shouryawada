@@ -2,9 +2,26 @@
 
 import { useState, useEffect, useCallback } from "react";
 import dynamic from "next/dynamic";
-import Navbar from "@/components/Navbar";
+import { StaggeredMenu } from "@/components/StaggeredMenu";
 import Hero from "@/components/Hero";
 import PageIntro from "@/components/PageIntro";
+
+// Menu configuration
+const menuItems = [
+  { label: 'About', ariaLabel: 'About Us', link: '/#about' },
+  { label: 'Dishes', ariaLabel: 'Signature Dishes', link: '/#dishes' },
+  { label: 'Menu', ariaLabel: 'Full Menu', link: '/menu' },
+  { label: 'Branches', ariaLabel: 'Our Branches', link: '/#branches' },
+  { label: 'Watch', ariaLabel: 'Watch Videos', link: '/#youtube' },
+  { label: 'Reserve', ariaLabel: 'Reserve a Table', link: 'tel:+918888888888' },
+  { label: 'Contact', ariaLabel: 'Contact Us', link: '/#contact' }
+];
+
+const socialItems = [
+  { label: 'Facebook', link: 'https://facebook.com/vikasnana.handeiii' },
+  { label: 'Instagram', link: 'https://instagram.com/hotel_shauryawada' },
+  { label: 'YouTube', link: 'https://youtube.com/@Hotel_Shauryawada_Official' }
+];
 
 // Lazy-load below-fold sections for performance
 const About = dynamic(() => import("@/components/About"), { ssr: false });
@@ -38,8 +55,15 @@ export default function Home() {
       {!introComplete && <PageIntro onComplete={handleIntroComplete} />}
 
       {/* Main site — always in DOM but invisible until intro fades */}
-      <main>
-        <Navbar />
+      <main className={introComplete ? "opacity-100 transition-opacity duration-1000" : "opacity-0"}>
+        <StaggeredMenu 
+          items={menuItems}
+          socialItems={socialItems}
+          displaySocials={true}
+          logoUrl="/logo.png"
+          accentColor="#FF6B00"
+          colors={['#C9A84C', '#FF6B00', '#1a1a1a']}
+        />
 
         {/* 1. Hero */}
         <Hero />

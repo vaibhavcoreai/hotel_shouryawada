@@ -193,13 +193,13 @@ export default function Dishes() {
                 <div>
                   <h3
                     className="font-heading font-bold text-2xl group-hover:text-gold transition-colors duration-300"
-                    style={{ color: "#1A1A1A" }}
+                    style={{ color: "rgba(26, 26, 26, 1)" }}
                   >
                     {dish.name}
                   </h3>
                   <p
                     className="font-heading text-sm mt-1"
-                    style={{ color: "rgba(201,168,76,0.6)" }}
+                    style={{ color: "#FF6B00" }}
                   >
                     {dish.marathi}
                   </p>

@@ -137,7 +137,7 @@ export default function Footer() {
                 background: "rgba(201,168,76,0.05)",
               }}
             >
-              <p className="font-heading text-lg font-bold" style={{ color: "#C9A84C" }}>
+              <p className="font-heading text-lg font-bold" style={{ color: "#FF6B00" }}>
                 ॥ शौर्यवाडा ॥
               </p>
             </div>
@@ -245,11 +245,11 @@ export default function Footer() {
                 className="font-heading text-lg font-bold italic mb-2"
                 style={{ color: "#C9A84C" }}
               >
-                &ldquo;Ruling Hearts Across Maharashtra Since Day One&rdquo;
+                &ldquo;To preserve our traditions for the next generation &rdquo;
               </p>
               <cite
                 className="font-body text-xs tracking-wider uppercase not-italic"
-                style={{ color: "rgba(26,26,26,0.6)" }}
+                style={{ color: "#FF6B00" }}
               >
                 — Hotel Shauryawada
               </cite>

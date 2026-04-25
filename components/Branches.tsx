@@ -116,8 +116,8 @@ export default function Branches() {
             {/* Overlay for premium look */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
-              <p className="font-heading text-white text-lg font-bold">A Legacy of Taste</p>
-              <p className="font-body text-white/70 text-sm italic">Our family serving yours since generations.</p>
+              <p className="font-heading text-white text-lg font-bold">A legacy of taste and tradition</p>
+              <p className="font-body text-white/70 text-sm italic">Tradition that we’re proud to share and serve</p>
             </div>
           </motion.div>
 
@@ -130,7 +130,7 @@ export default function Branches() {
                 className="section-title font-heading font-extrabold gsap-animated"
                 style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#1A1A1A" }}
               >
-                Our Kingdom Spans <span style={{ color: "#FF6B00" }}>Maharashtra</span>
+                Across the heart of <span style={{ color: "#FF6B00" }}>Maharashtra</span>
               </h2>
               <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
             </div>
@@ -138,8 +138,7 @@ export default function Branches() {
               className="font-body mb-10 text-base md:text-lg opacity-80"
               style={{ color: "#1A1A1A", lineHeight: 1.7 }}
             >
-              From the red hills of Kolhapur country to the vineyards of Nashik — the Shauryawada
-              throne sits tall in eight cities.
+              From the hills of Kolhapur to the vineyards of Nashik, <span style={{ color: "#FF6B00" }}>Hotel Shauryawada</span> serves its traditions across eight major cities.
             </p>
 
         {/* Branch chip grid — Framer Motion stagger */}

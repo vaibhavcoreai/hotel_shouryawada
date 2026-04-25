@@ -21,17 +21,17 @@ const PILLARS = [
   {
     icon: Shield,
     title: "Warrior Heritage",
-    desc: "Bold, unapologetic spirit of Maratha valor.",
+    desc: "Born from the bold spirit of the Maratha warrior.",
   },
   {
     icon: Award,
     title: "Royal Recipes",
-    desc: "Slow-roasted Raan perfected over generations.",
+    desc: "Our special dishes have been perfected over generations.",
   },
   {
     icon: Users,
     title: "Community Feast",
-    desc: "Over 930K families call us their second home.",
+    desc: "Our special dishes have been perfected over generations.",
   },
 ];
 
@@ -163,14 +163,14 @@ export default function About() {
                 className="font-body text-base md:text-lg leading-relaxed"
                 style={{ color: "rgba(26,26,26,0.8)" }}
               >
-                Born from the red earth of Maharashtra, Hotel Shauryawada carries the soul of the
-                Maratha warrior — fiercely proud, deeply rooted, and generous to the core. We built a kingdom on a plate.
+                Born from the Land of Maharashtra, Hotel Shauryawada carries the soul of the
+                Maratha warrior — fiercely proud, deeply rooted, and generous to the core.
               </p>
               <p
                 className="font-body text-base md:text-lg leading-relaxed"
                 style={{ color: "rgba(26,26,26,0.8)" }}
               >
-                Our signature <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span> and <span style={{ color: "#FF6B00", fontWeight: 700 }}>Chicken Raan</span> are not merely dishes — they are rituals, slow-roasted until the meat surrenders in smoky, golden perfection.
+                Cooking is a ritual - every dish is prepared with care and patience, perfected through generations of our tradition.
               </p>
             </div>
 

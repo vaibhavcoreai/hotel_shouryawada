@@ -100,14 +100,15 @@ export default function YouTube() {
             className="section-title font-heading font-extrabold gsap-animated"
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
           >
-            Join Our <span style={{ color: "#FF6B00" }}>Kingdom</span>
+            Join Our <span style={{ color: "#FF6B00" }}>Community</span>
           </h2>
           <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
           <p
             className="font-body mt-6 max-w-xl"
             style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
           >
-            Follow our culinary journey across Maharashtra. Connect with us on Instagram and watch the Raan being made on YouTube.
+            Follow our  journey across Maharashtra. Connect with us on Instagram and enjoy our content on YouTube.
+
           </p>
         </div>
 

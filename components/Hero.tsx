@@ -102,7 +102,7 @@ export default function Hero() {
 
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto -translate-y-60 md:-translate-y-80">
         {/* Eyebrow */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -134,112 +134,8 @@ export default function Hero() {
           />
         </h1>
 
-        {/* Subline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.0, duration: 0.7 }}
-          className="font-body text-base sm:text-lg md:text-xl mb-6 md:mb-4 max-w-2xl mx-auto px-4 sm:px-0"
-          style={{ color: "rgba(255, 255, 255, 1)", lineHeight: 1.6 }}
-        >
-          Home of the legendary{" "}
-          <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span>{" "}
-          &amp;{" "}
-          <span style={{ color: "#FF6B00", fontWeight: 700 }}>Chicken Raan</span>
-          {" "}— cooked the Marathaian way. Eight cities. One legacy.
-        </motion.p>
 
-        {/* Gold divider line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 3.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-24 md:w-32 h-px mx-auto mb-8"
-          style={{
-            background: "linear-gradient(90deg, transparent, #C9A84C, transparent)",
-            transformOrigin: "center",
-          }}
-        />
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.2, duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 px-6 sm:px-0"
-        >
-          {/* Primary CTA */}
-          <motion.a
-            href="#dishes"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="group relative w-full sm:w-auto px-8 py-3.5 md:py-4 font-body font-bold text-sm tracking-[0.18em] uppercase overflow-hidden cursor-none"
-            style={{
-              background: "linear-gradient(135deg, #FF6B00, #C9A84C)",
-              color: "#1A1A1A",
-              clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#dishes")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            <span className="relative z-10 flex items-center justify-center gap-2">
-              <Utensils size={14} />
-              Signature Dishes
-            </span>
-          </motion.a>
-
-          {/* Secondary CTA */}
-          <motion.a
-            href="#branches"
-            whileHover={{ scale: 1.04, borderColor: "#FF6B00" }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="w-full sm:w-auto px-8 py-3.5 md:py-4 font-body font-bold text-sm tracking-[0.18em] uppercase border cursor-none"
-            style={{
-              borderColor: "#C9A84C",
-              color: "#C9A84C",
-              clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))",
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              document.querySelector("#branches")?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Find a Branch
-          </motion.a>
-        </motion.div>
-
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 3.5, duration: 0.8 }}
-          className="flex items-center justify-center gap-x-6 gap-y-4 md:gap-8 mt-12 md:mt-16 flex-wrap"
-        >
-          {[
-            { value: "8", label: "Royal Branches" },
-            { value: "930K+", label: "YouTube Warriors" },
-            { value: "∞", label: "Raans Served" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center px-2">
-              <div
-                className="font-heading font-extrabold text-2xl md:text-4xl glow-gold"
-                style={{ color: "#C9A84C" }}
-              >
-                {stat.value}
-              </div>
-              <div
-                className="text-[10px] md:text-xs tracking-widest uppercase font-body mt-1"
-                style={{ color: "rgba(26,26,26,0.6)" }}
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -248,21 +144,20 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3.8, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-none"
+        className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3 cursor-none"
       >
         <span
-          className="text-[10px] tracking-[0.3em] uppercase font-body"
-          style={{ color: "rgba(139,69,19,0.8)" }}
+          className="text-[10px] tracking-[0.3em] uppercase font-body text-white"
         >
           Scroll
         </span>
-        <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          style={{ display: 'block' }}
-        >
-          <ChevronDown size={18} color="#8B4513" />
-        </motion.span>
+        <div className="w-[22px] h-[36px] border border-white rounded-full flex justify-center p-1 opacity-80">
+          <motion.div
+            animate={{ y: [0, 14, 0], opacity: [1, 0, 1] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            className="w-1 h-[6px] bg-white rounded-full"
+          />
+        </div>
       </motion.button>
 
       {/* Bottom gradient */}

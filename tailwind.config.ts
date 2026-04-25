@@ -18,8 +18,8 @@ const config: Config = {
         "charcoal-80": "rgba(26,26,26,0.8)",
       },
       fontFamily: {
-        heading: ["var(--font-baloo)", "cursive"],
-        body: ["var(--font-lato)", "sans-serif"],
+        heading: ["var(--font-playfair)", "serif"],
+        body: ["var(--font-lora)", "serif"],
       },
       backgroundImage: {
         "maratha-gradient":

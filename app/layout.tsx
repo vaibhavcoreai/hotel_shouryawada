@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Baloo_2, Lato } from "next/font/google";
+import { Playfair_Display, Lora } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
 import CustomCursor from "@/components/CustomCursor";
 
-const baloo = Baloo_2({
-  subsets: ["latin", "devanagari"],
+const playfair = Playfair_Display({
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-baloo",
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const lato = Lato({
+const lora = Lora({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-lora",
   display: "swap",
 });
 
@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${baloo.variable} ${lato.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${lora.variable}`}>
       <body className="bg-cream text-charcoal overflow-x-hidden">
         <LenisProvider>
           <CustomCursor />

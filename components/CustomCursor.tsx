@@ -5,19 +5,16 @@ import { motion } from "framer-motion";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const cursorDotRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     if (window.innerWidth < 768) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let curX = 0;
-    let curY = 0;
-    let dotX = 0;
-    let dotY = 0;
+    let mouseX = -100;
+    let mouseY = -100;
+    let curX = -100;
+    let curY = -100;
     let rafId: number;
 
     const onMouseMove = (e: MouseEvent) => {
@@ -42,18 +39,11 @@ export default function CustomCursor() {
     document.addEventListener("mouseup", onMouseUp);
 
     const animate = () => {
-      // Outer ring: slow lerp
-      curX += (mouseX - curX) * 0.08;
-      curY += (mouseY - curY) * 0.08;
-      // Inner dot: fast lerp
-      dotX += (mouseX - dotX) * 0.3;
-      dotY += (mouseY - dotY) * 0.3;
+      curX += (mouseX - curX) * 0.2;
+      curY += (mouseY - curY) * 0.2;
 
       if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate(${curX - 20}px, ${curY - 20}px)`;
-      }
-      if (cursorDotRef.current) {
-        cursorDotRef.current.style.transform = `translate(${dotX - 4}px, ${dotY - 4}px)`;
+        cursorRef.current.style.transform = `translate3d(${curX}px, ${curY}px, 0) translate3d(-50%, -50%, 0)`;
       }
       rafId = requestAnimationFrame(animate);
     };
@@ -72,43 +62,19 @@ export default function CustomCursor() {
   }, []);
 
   return (
-    <>
-      {/* Outer ring */}
-      <motion.div
-        ref={cursorRef}
-        className="hidden md:block fixed top-0 left-0 z-[99999] pointer-events-none"
-        animate={{
-          width: hovered ? 48 : clicked ? 28 : 40,
-          height: hovered ? 48 : clicked ? 28 : 40,
-          borderColor: hovered ? "#FF6B00" : "#C9A84C",
-          opacity: hovered ? 0.9 : 0.6,
-        }}
-        transition={{ type: "spring", stiffness: 200, damping: 15 }}
-        style={{
-          border: "1.5px solid #C9A84C",
-          borderRadius: "50%",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          pointerEvents: "none",
-          zIndex: 99999,
-        }}
-      />
-      {/* Inner dot */}
-      <div
-        ref={cursorDotRef}
-        className="hidden md:block fixed top-0 left-0 z-[99999] pointer-events-none"
-        style={{
-          width: 8,
-          height: 8,
-          borderRadius: "50%",
-          background: "#C9A84C",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          pointerEvents: "none",
-        }}
-      />
-    </>
+    <motion.div
+      ref={cursorRef}
+      className="hidden md:block fixed top-0 left-0 z-[99999] pointer-events-none mix-blend-difference"
+      animate={{
+        width: hovered ? 48 : clicked ? 20 : 24,
+        height: hovered ? 48 : clicked ? 20 : 24,
+      }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      style={{
+        background: "white",
+        borderRadius: "50%",
+        willChange: "transform, width, height",
+      }}
+    />
   );
 }

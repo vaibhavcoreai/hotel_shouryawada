@@ -8,57 +8,48 @@ import { Flame, Crown } from "lucide-react";
 
 const DISHES = [
   {
-    name: "Mutton Raan",
-    marathi: "मटण रान",
-    desc: "Whole leg of lamb marinated overnight in Kolhapuri masala, slow-roasted on charcoal until it melts off the bone. The crown jewel of Shauryawada.",
-    price: "₹ 799",
-    tags: ["Signature", "Charcoal Roast"],
-    badge: "Must Try",
+    name: "Gavran Chicken Matka Handi (Half / Full)",
+    marathi: "गावरान चिकन मटका हंडी (हाफ / फुल)",
+    desc: "Authentic country-style chicken slow-cooked in a clay pot with earthy Maharashtrian spices.",
+    price: "₹ 549 / ₹ 999",
+    tags: ["Rustic", "Earthen Pot"],
+    badge: "Signature",
     flame: 3,
   },
   {
-    name: "Chicken Raan",
-    marathi: "चिकन रान",
-    desc: "Farm-fresh whole chicken leg, marinated in our secret Shauryawada masala blend, slow-cooked to perfection with smoky, charred edges.",
-    price: "₹ 449",
-    tags: ["Signature", "Chef's Pride"],
+    name: "Rajeshahi Murg",
+    marathi: "राजेशाही मुर्ग",
+    desc: "A royal delicacy. Tender chicken in a rich, velvety gravy infused with cashew, saffron, and premium whole spices.",
+    price: "₹ 499",
+    tags: ["Royal", "Rich Gravy"],
+    badge: "Chef's Special",
+    flame: 2,
+  },
+  {
+    name: "Mutton Shahi Korma",
+    marathi: "मटन शाही कोरमा",
+    desc: "Slow-braised mutton in an aromatic, luxurious cream and yogurt-based gravy, fit for the Maratha kings.",
+    price: "₹ 649",
+    tags: ["Luxurious", "Mild Spice"],
     badge: "Must Try",
-    flame: 2,
-  },
-  {
-    name: "Kolhapuri Mutton",
-    marathi: "कोल्हापुरी मटण",
-    desc: "A fiery red gravy bursting with fresh coconut, dried red chilies, and the iconic Kolhapuri masala. For those who crave real heat.",
-    price: "₹ 399",
-    tags: ["Spicy", "Traditional"],
-    badge: "Fan Favourite",
-    flame: 3,
-  },
-  {
-    name: "Tambda Rassa",
-    marathi: "तांबडा रस्सा",
-    desc: "The legendary Kolhapuri thin red soup — made with mutton extract and whole spices. Poured tableside. A sacred tradition.",
-    price: "₹ 149",
-    tags: ["Soup", "Traditional"],
-    badge: "Legacy Dish",
-    flame: 2,
-  },
-  {
-    name: "Pandhra Rassa",
-    marathi: "पांढरा रस्सा",
-    desc: "The white mutton broth — silky, rich with coconut milk and whole spices. Cool counterpart to the Tambda Rassa. Always served together.",
-    price: "₹ 149",
-    tags: ["Soup", "Mild"],
-    badge: "Pair It",
     flame: 1,
   },
   {
-    name: "Varhadi Chicken",
-    marathi: "वऱ्हाडी चिकन",
-    desc: "A lesser-known gem from Vidarbha region — dry-spiced chicken with aromatic sesame and flaxseed gravy. Bold, rustic, unforgettable.",
-    price: "₹ 349",
-    tags: ["Regional", "Dry Masala"],
-    badge: "Hidden Gem",
+    name: "Mutton Matka Handi (Half / Full)",
+    marathi: "मटन मटका हंडी (हाफ / फुल)",
+    desc: "Premium mutton cuts simmered slowly in a sealed earthen pot, capturing the true essence of traditional spices.",
+    price: "₹ 749 / ₹ 1399",
+    tags: ["Traditional", "Slow Cooked"],
+    badge: "Crowd Favorite",
+    flame: 3,
+  },
+  {
+    name: "Mutton Shahi Raan Ki Shaan",
+    marathi: "मटन शाही रान की शान",
+    desc: "The ultimate royal feast. A majestic whole leg of lamb, marinated in secret spices and slow-roasted to absolute perfection.",
+    price: "₹ 1199",
+    tags: ["Majestic", "Charcoal Roast"],
+    badge: "The Crown Jewel",
     flame: 2,
   },
 ];
@@ -151,8 +142,8 @@ export default function Dishes() {
               className="section-title font-heading font-extrabold gsap-animated"
               style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
             >
-              Signature{" "}
-              <span style={{ color: "#C9A84C" }}>Dishes</span>
+              SHAURYAWADA{" "}
+              <span style={{ color: "#C9A84C" }}>SPECIAL</span>
             </h2>
             <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
           </div>
@@ -160,7 +151,7 @@ export default function Dishes() {
             className="font-body text-sm md:text-base max-w-sm text-left md:text-right"
             style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
           >
-            Each dish is a battle cry. Every plate — a royal banquet.
+            Our heritage dishes
           </p>
         </div>
 
@@ -217,23 +208,15 @@ export default function Dishes() {
               </div>
 
               {/* Classic Divider */}
-              <div className="flex items-center gap-2 my-5 opacity-50">
+              <div className="flex items-center gap-2 mt-auto mb-4 opacity-50">
                 <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.2)" }} />
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#C9A84C" }} />
                 <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.2)" }} />
               </div>
 
-              {/* Description */}
-              <p
-                className="font-body text-sm leading-relaxed flex-1 mb-6"
-                style={{ color: "rgba(26,26,26,0.7)" }}
-              >
-                {dish.desc}
-              </p>
-
-              {/* Tags + Price */}
-              <div className="flex items-end justify-between mt-auto pt-4">
-                <div className="flex gap-2 flex-wrap max-w-[60%]">
+              {/* Tags */}
+              <div className="flex items-end justify-between">
+                <div className="flex gap-2 flex-wrap">
                   {dish.tags.map((tag, j) => (
                     <span
                       key={j}
@@ -246,12 +229,6 @@ export default function Dishes() {
                     </span>
                   ))}
                 </div>
-                <span
-                  className="font-heading font-bold text-xl"
-                  style={{ color: "#C9A84C" }}
-                >
-                  {dish.price}
-                </span>
               </div>
             </motion.div>
           ))}

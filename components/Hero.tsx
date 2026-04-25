@@ -123,7 +123,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Main heading image */}
-        <h1 ref={headingRef} className="relative w-full max-w-[92vw] md:max-w-3xl mx-auto h-[120px] xs:h-[160px] sm:h-[200px] md:h-[280px] mb-6 md:mb-8">
+        <h1 ref={headingRef} className="relative w-full max-w-[92vw] md:max-w-4xl lg:max-w-6xl mx-auto h-[120px] xs:h-[160px] sm:h-[200px] md:h-[320px] lg:h-[420px] mb-6 md:mb-8">
           <span className="sr-only">हॉटेल शौर्यवाडा बेत गावाकडचा</span>
           <Image
             src="/title_transparent.png"

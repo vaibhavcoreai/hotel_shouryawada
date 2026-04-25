@@ -126,8 +126,7 @@ export default function Footer() {
               className="font-body text-sm leading-relaxed mb-6"
               style={{ color: "rgba(26,26,26,0.7)" }}
             >
-              Ruling hearts across Maharashtra with authentic Mutton &amp; Chicken Raan,
-              cooked the Maratha way — bold, honest, and unforgettable.
+              Ruling hearts across Maharashtra with authentic age-old recipes cooked in the Maratha way — bold, honest, and unforgettable.
             </p>
             {/* Marathi brand stamp */}
             <div
@@ -235,7 +234,7 @@ export default function Footer() {
               className="font-heading font-bold text-base mb-6"
               style={{ color: "#1A1A1A" }}
             >
-              The Warrior&apos;s Oath
+              Our Motto
             </h4>
             <blockquote
               className="relative pl-4 py-2"

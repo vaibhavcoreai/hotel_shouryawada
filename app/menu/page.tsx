@@ -8,6 +8,7 @@ const menuItems = [
   { label: 'About', ariaLabel: 'About Us', link: '/#about' },
   { label: 'Dishes', ariaLabel: 'Signature Dishes', link: '/#dishes' },
   { label: 'Menu', ariaLabel: 'Full Menu', link: '/menu' },
+  { label: 'Gallery', ariaLabel: 'Photo Gallery', link: '/gallery' },
   { label: 'Branches', ariaLabel: 'Our Branches', link: '/#branches' },
   { label: 'Watch', ariaLabel: 'Watch Videos', link: '/#youtube' },
   { label: 'Reserve', ariaLabel: 'Reserve a Table', link: 'tel:+918888888888' },

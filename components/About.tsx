@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Shield, Award, Users } from "lucide-react";
+import { Shield, Award, Users, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const bentoItems = [
   { id: "1", img: "/Masonry/1-0aa0q2b4ck.jpg", className: "col-span-2 row-span-2" },
@@ -31,7 +32,7 @@ const PILLARS = [
   {
     icon: Users,
     title: "Community Feast",
-    desc: "Our special dishes have been perfected over generations.",
+    desc: "Over 2 million people are connected to our Hotel Shauryawada.",
   },
 ];
 
@@ -150,12 +151,7 @@ export default function About() {
               >
                 &ldquo;जिथे शौर्य, तिथे स्वाद.&rdquo;
               </p>
-              <p
-                className="text-sm mt-1 font-body"
-                style={{ color: "rgba(26,26,26,0.6)" }}
-              >
-                Where there is valor, there is flavor.
-              </p>
+              
             </div>
 
             <div className="space-y-6">
@@ -185,6 +181,29 @@ export default function About() {
                   <p className="text-[11px] font-body" style={{ color: "rgba(26,26,26,0.6)" }}>{pillar.desc}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Gallery Button */}
+            <div className="pt-6">
+              <Link href="/gallery" className="inline-flex items-center gap-3 group cursor-none">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 rounded-sm text-sm font-body uppercase tracking-[0.2em] font-bold relative overflow-hidden"
+                  style={{
+                    background: "linear-gradient(135deg, #FF6B00, #C9A84C)",
+                    color: "#1A1A1A",
+                  }}
+                >
+                  View Full Gallery
+                </motion.div>
+                <motion.div 
+                  className="w-10 h-10 rounded-full flex items-center justify-center border border-gold/30 transition-colors group-hover:border-gold"
+                  whileHover={{ x: 5 }}
+                >
+                  <ArrowRight size={18} color="#C9A84C" />
+                </motion.div>
+              </Link>
             </div>
           </div>
 

@@ -1,16 +1,21 @@
+"use client";
+
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
-const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-  const [value, setValue] = useState<number>(get);
+const useMedia = (queries: string[], values: number[], defaultValue: number): number => {
+  const [value, setValue] = useState<number>(defaultValue);
 
   useEffect(() => {
-    const handler = () => setValue(get);
-    queries.forEach(q => matchMedia(q).addEventListener('change', handler));
-    return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
-  }, [queries]);
+    const get = () => values[queries.findIndex(q => window.matchMedia(q).matches)] ?? defaultValue;
+    setValue(get());
+
+    const handler = () => setValue(get());
+    queries.forEach(q => window.matchMedia(q).addEventListener('change', handler));
+    return () => queries.forEach(q => window.matchMedia(q).removeEventListener('change', handler));
+  }, [queries, values, defaultValue]);
 
   return value;
 };
@@ -19,7 +24,7 @@ const useMeasure = <T extends HTMLElement>() => {
   const ref = useRef<T | null>(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!ref.current) return;
     const ro = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect;
@@ -148,7 +153,7 @@ const Masonry: React.FC<MasonryProps> = ({
 
   const hasMounted = useRef(false);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (!imagesReady) return;
 
     grid.forEach((item, index) => {

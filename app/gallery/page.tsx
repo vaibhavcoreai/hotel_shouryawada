@@ -79,7 +79,7 @@ export default function GalleryPage() {
           className="text-center mb-16"
         >
           <h1 className="text-5xl md:text-7xl font-heading font-bold text-charcoal mb-4">
-            Visual <span className="text-gold">Grandeur</span>
+            Our <span className="text-gold">Gallery</span>
           </h1>
           <div className="flex items-center justify-center gap-4 mb-6">
              <div className="h-px w-12 bg-gold/30"></div>
@@ -87,8 +87,7 @@ export default function GalleryPage() {
              <div className="h-px w-12 bg-gold/30"></div>
           </div>
           <p className="max-w-2xl mx-auto text-charcoal/70 font-body text-lg leading-relaxed">
-            Step into the royal court of Maharashtra. From our legendary Raan to the 
-            regal ambiance of our 8 branches, explore the moments that define our dynasty.
+            Explore the authentic flavors and royal moments of Hotel Shauryawada.
           </p>
         </motion.div>
 

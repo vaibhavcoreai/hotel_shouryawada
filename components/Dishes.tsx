@@ -281,10 +281,6 @@ export default function Dishes() {
               </motion.div>
             </motion.div>
           </Link>
-
-          <p className="font-heading text-xs uppercase tracking-widest text-gold/60">
-            Over 150+ Royal Delicacies Await
-          </p>
         </div>
       </div>
 

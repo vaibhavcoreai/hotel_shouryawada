@@ -123,6 +123,26 @@ export default function FullMenu() {
   
   const [openCategory, setOpenCategory] = useState<string | null>(null);
 
+  const handleCategoryClick = (categoryName: string) => {
+    if (openCategory === categoryName) {
+      setOpenCategory(null);
+    } else {
+      setOpenCategory(categoryName);
+      setTimeout(() => {
+        const id = `category-${categoryName.replace(/\s+/g, '-')}`;
+        const el = document.getElementById(id);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+          if ((window as any).lenis) {
+            (window as any).lenis.scrollTo(y, { duration: 1 });
+          } else {
+            window.scrollTo({ top: y });
+          }
+        }
+      }, 450); // Wait 450ms for Framer Motion height:0 animation to fully complete so the element's final Y position is accurate
+    }
+  };
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const ctx = gsap.context(() => {
@@ -165,11 +185,12 @@ export default function FullMenu() {
           {MENU_CATEGORIES.map((category) => (
             <div
               key={category.category}
+              id={`category-${category.category.replace(/\s+/g, '-')}`}
               className="border rounded-sm overflow-hidden"
               style={{ borderColor: "rgba(201,168,76,0.15)" }}
             >
               <button
-                onClick={() => setOpenCategory(openCategory === category.category ? null : category.category)}
+                onClick={() => handleCategoryClick(category.category)}
                 className="w-full flex items-center justify-between p-4 md:p-6 text-left transition-colors duration-300 cursor-none hover:bg-black/[0.02]"
                 style={{
                   background: openCategory === category.category ? "rgba(26,26,26,0.03)" : "transparent",

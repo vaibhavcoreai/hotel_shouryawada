@@ -22,6 +22,8 @@ export default function LenisProvider({
     });
 
     lenisRef.current = lenis;
+    // Expose lenis globally for manual smooth scrolling
+    (window as any).lenis = lenis;
 
     // Connect Lenis to GSAP ticker so ScrollTrigger stays in sync
     gsap.registerPlugin(ScrollTrigger);

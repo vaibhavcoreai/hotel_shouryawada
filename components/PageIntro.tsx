@@ -36,7 +36,7 @@ export default function PageIntro({ onComplete }: { onComplete: () => void }) {
       style={{
         position: "fixed",
         inset: 0,
-        background: "#000",
+        background: "#FFF8E7",
         zIndex: 9999,
         display: "flex",
         flexDirection: "column",
@@ -53,7 +53,7 @@ export default function PageIntro({ onComplete }: { onComplete: () => void }) {
             src="/logo.png"
             alt="Hotel Shauryawada Logo"
             fill
-            className="object-contain"
+            className="object-contain drop-shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
             priority
           />
         </div>

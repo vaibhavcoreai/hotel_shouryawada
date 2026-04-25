@@ -73,17 +73,10 @@ export default function Hero() {
           src="/hero-bg.jpg" // Note: Please save the provided image to your public folder as `hero-bg.jpg`
           alt="Shauryawada Special"
           fill
-          className="object-cover opacity-100 mix-blend-overlay"
+          className="object-cover opacity-100"
           priority
         />
-        {/* Deep gradient layered with texture */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(13,8,0,0.8) 0%, rgba(26,14,0,0.85) 30%, rgba(45,21,0,0.9) 60%, #1A1A1A 100%)",
-          }}
-        />
+
         {/* Stone texture overlay */}
         <div
           className="absolute inset-0 opacity-20"
@@ -114,7 +107,7 @@ export default function Hero() {
       <div
         className="absolute top-0 left-0 right-0 h-32 z-10"
         style={{
-          background: "linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)",
+          background: "linear-gradient(to bottom, rgba(255,248,231,0.8), transparent)",
         }}
       />
 
@@ -146,7 +139,7 @@ export default function Hero() {
             src="/title_transparent.png"
             alt="Hotel Shauryawada Title"
             fill
-            className="object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.7)]"
+            className="object-contain drop-shadow-[0_10px_35px_rgba(0,0,0,0.6)]"
             priority
           />
         </h1>
@@ -157,7 +150,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.0, duration: 0.7 }}
           className="font-body text-base sm:text-lg md:text-xl mb-6 md:mb-4 max-w-2xl mx-auto px-4 sm:px-0"
-          style={{ color: "rgba(255,248,231,0.7)", lineHeight: 1.6 }}
+          style={{ color: "rgba(255, 255, 255, 1)", lineHeight: 1.6 }}
         >
           Home of the legendary{" "}
           <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span>{" "}
@@ -204,7 +197,7 @@ export default function Hero() {
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
               <Utensils size={14} />
-              View Our Raan
+              Signature Dishes
             </span>
           </motion.a>
 
@@ -250,7 +243,7 @@ export default function Hero() {
               </div>
               <div
                 className="text-[10px] md:text-xs tracking-widest uppercase font-body mt-1"
-                style={{ color: "rgba(255,248,231,0.5)" }}
+                style={{ color: "rgba(26,26,26,0.6)" }}
               >
                 {stat.label}
               </div>
@@ -269,7 +262,7 @@ export default function Hero() {
       >
         <span
           className="text-[10px] tracking-[0.3em] uppercase font-body"
-          style={{ color: "rgba(201,168,76,0.6)" }}
+          style={{ color: "rgba(139,69,19,0.8)" }}
         >
           Scroll
         </span>
@@ -277,7 +270,7 @@ export default function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
         >
-          <ChevronDown size={18} color="#C9A84C" />
+          <ChevronDown size={18} color="#8B4513" />
         </motion.div>
       </motion.button>
 
@@ -286,7 +279,7 @@ export default function Hero() {
         className="absolute bottom-0 left-0 right-0 h-40 z-[5]"
         style={{
           background:
-            "linear-gradient(to top, #1A1A1A, transparent)",
+            "linear-gradient(to top, #FFF8E7, transparent)",
         }}
       />
     </section>

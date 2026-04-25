@@ -27,7 +27,7 @@ const InstagramIcon = () => (
 const YoutubeIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
     <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" />
+    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#1A1A1A" />
   </svg>
 );
 
@@ -81,7 +81,7 @@ export default function Footer() {
       ref={sectionRef}
       id="contact"
       className="relative overflow-hidden"
-      style={{ background: "#080500" }}
+      style={{ background: "#FFF8E7" }}
     >
       {/* Maratha decorative top border */}
       <div className="relative h-8">
@@ -94,7 +94,7 @@ export default function Footer() {
         />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4"
-          style={{ background: "#080500" }}
+          style={{ background: "#FFF8E7" }}
         >
           <span style={{ color: "#C9A84C", fontSize: "1.2rem" }}>◆</span>
         </div>
@@ -124,7 +124,7 @@ export default function Footer() {
             />
             <p
               className="font-body text-sm leading-relaxed mb-6"
-              style={{ color: "rgba(255,248,231,0.45)" }}
+              style={{ color: "rgba(26,26,26,0.7)" }}
             >
               Ruling hearts across Maharashtra with authentic Mutton &amp; Chicken Raan,
               cooked the Maratha way — bold, honest, and unforgettable.
@@ -147,7 +147,7 @@ export default function Footer() {
           <div className="footer-col gsap-animated">
             <h4
               className="font-heading font-bold text-base mb-6 flex items-center gap-2"
-              style={{ color: "#FFF8E7" }}
+              style={{ color: "#1A1A1A" }}
             >
               <MapPin size={14} color="#FF6B00" />
               Our Branches
@@ -157,7 +157,7 @@ export default function Footer() {
                 <li key={i}>
                   <span
                     className="font-body text-sm transition-colors duration-200 hover:text-gold cursor-pointer"
-                    style={{ color: "rgba(255,248,231,0.5)" }}
+                    style={{ color: "rgba(26,26,26,0.7)" }}
                   >
                     {branch}
                   </span>
@@ -170,7 +170,7 @@ export default function Footer() {
           <div className="footer-col gsap-animated">
             <h4
               className="font-heading font-bold text-base mb-6 flex items-center gap-2"
-              style={{ color: "#FFF8E7" }}
+              style={{ color: "#1A1A1A" }}
             >
               <Mail size={14} color="#FF6B00" />
               Connect With Us
@@ -187,7 +187,7 @@ export default function Footer() {
                 />
                 <span
                   className="font-body text-sm"
-                  style={{ color: "rgba(255,248,231,0.5)", wordBreak: "break-all" }}
+                  style={{ color: "rgba(26,26,26,0.7)", wordBreak: "break-all" }}
                 >
                   shauryawada.marketing@gmail.com
                 </span>
@@ -197,7 +197,7 @@ export default function Footer() {
               <div className="pt-4">
                 <p
                   className="font-body text-xs tracking-widest uppercase mb-4"
-                  style={{ color: "rgba(255,248,231,0.3)" }}
+                  style={{ color: "rgba(26,26,26,0.6)" }}
                 >
                   Follow Our Journey
                 </p>
@@ -215,7 +215,7 @@ export default function Footer() {
                         transition={{ type: "spring" as const, stiffness: 300, damping: 15 }}
                         className="w-10 h-10 flex items-center justify-center rounded-sm cursor-none"
                         style={{
-                          background: "rgba(255,248,231,0.04)",
+                          background: "rgba(26,26,26,0.04)",
                           border: "1px solid rgba(201,168,76,0.15)",
                           color: "#C9A84C",
                         }}
@@ -233,7 +233,7 @@ export default function Footer() {
           <div className="footer-col gsap-animated">
             <h4
               className="font-heading font-bold text-base mb-6"
-              style={{ color: "#FFF8E7" }}
+              style={{ color: "#1A1A1A" }}
             >
               The Warrior&apos;s Oath
             </h4>
@@ -249,7 +249,7 @@ export default function Footer() {
               </p>
               <cite
                 className="font-body text-xs tracking-wider uppercase not-italic"
-                style={{ color: "rgba(255,248,231,0.35)" }}
+                style={{ color: "rgba(26,26,26,0.6)" }}
               >
                 — Hotel Shauryawada
               </cite>
@@ -284,14 +284,14 @@ export default function Footer() {
         >
           <p
             className="font-body text-xs text-center md:text-left"
-            style={{ color: "rgba(255,248,231,0.25)" }}
+            style={{ color: "rgba(26,26,26,0.5)" }}
           >
             © {new Date().getFullYear()} Hotel Shauryawada. All rights reserved.
             Built with pride in Maharashtra. 🧡
           </p>
           <p
             className="font-body text-xs"
-            style={{ color: "rgba(255,248,231,0.2)" }}
+            style={{ color: "rgba(26,26,26,0.5)" }}
           >
             Handewadi · Wagholi · Bhosari · Nashik · &amp; more
           </p>

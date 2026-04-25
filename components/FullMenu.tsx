@@ -147,7 +147,7 @@ export default function FullMenu() {
       ref={sectionRef}
       id="full-menu"
       className="relative py-24 md:py-32"
-      style={{ background: "#0D0800" }}
+      style={{ background: "#FDFBF7" }}
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
@@ -170,14 +170,14 @@ export default function FullMenu() {
             >
               <button
                 onClick={() => setOpenCategory(openCategory === category.category ? null : category.category)}
-                className="w-full flex items-center justify-between p-4 md:p-6 text-left transition-colors duration-300 cursor-none hover:bg-white/[0.02]"
+                className="w-full flex items-center justify-between p-4 md:p-6 text-left transition-colors duration-300 cursor-none hover:bg-black/[0.02]"
                 style={{
-                  background: openCategory === category.category ? "rgba(255,248,231,0.03)" : "transparent",
+                  background: openCategory === category.category ? "rgba(26,26,26,0.03)" : "transparent",
                 }}
               >
                 <h3
                   className="font-heading font-bold text-lg md:text-xl uppercase tracking-wider pr-4"
-                  style={{ color: "#FFF8E7" }}
+                  style={{ color: "#1A1A1A" }}
                 >
                   {category.category}
                 </h3>
@@ -205,7 +205,7 @@ export default function FullMenu() {
                             {item.name}
                           </h4>
                           {item.desc && (
-                            <p className="font-body text-sm leading-relaxed" style={{ color: "rgba(255,248,231,0.6)" }}>
+                            <p className="font-body text-sm leading-relaxed" style={{ color: "rgba(26,26,26,0.7)" }}>
                               {item.desc}
                             </p>
                           )}

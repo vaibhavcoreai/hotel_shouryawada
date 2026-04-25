@@ -83,7 +83,7 @@ export default function Branches() {
       className="relative py-20 md:py-32 overflow-hidden"
       style={{
         background:
-          "linear-gradient(180deg, #1A1A1A 0%, #1A0E00 50%, #1A1A1A 100%)",
+          "linear-gradient(180deg, #FFF8E7 0%, #FDFBF7 50%, #FFF8E7 100%)",
       }}
     >
       {/* Decorative map-pin grid background */}
@@ -101,7 +101,7 @@ export default function Branches() {
           <h2
             ref={titleRef}
             className="section-title font-heading font-extrabold gsap-animated"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#FFF8E7" }}
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
           >
             Our Kingdom Spans{" "}
             <span style={{ color: "#FF6B00" }}>Maharashtra</span>
@@ -110,7 +110,7 @@ export default function Branches() {
         </div>
         <p
           className="font-body mb-16 max-w-xl"
-          style={{ color: "rgba(255,248,231,0.5)", lineHeight: 1.7 }}
+          style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
         >
           From the red hills of Kolhapur country to the vineyards of Nashik — the Shauryawada
           throne sits tall in eight cities.
@@ -135,9 +135,9 @@ export default function Branches() {
               }}
               className="branch-chip group relative flex flex-col items-center justify-center gap-1 py-5 px-4 rounded-sm cursor-none text-center transition-colors duration-300"
               style={{
-                background: "rgba(255,248,231,0.03)",
+                background: "rgba(26,26,26,0.03)",
                 border: "1px solid rgba(201,168,76,0.18)",
-                color: "#FFF8E7",
+                color: "#1A1A1A",
               }}
             >
               <MapPin
@@ -183,7 +183,7 @@ export default function Branches() {
             }}
           >
             <MapPin size={14} color="#C9A84C" />
-            <span className="font-body text-sm" style={{ color: "rgba(255,248,231,0.5)" }}>
+            <span className="font-body text-sm" style={{ color: "rgba(26,26,26,0.6)" }}>
               More cities coming soon — the conquest continues.
             </span>
           </div>

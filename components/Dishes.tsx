@@ -131,7 +131,7 @@ export default function Dishes() {
       ref={sectionRef}
       id="dishes"
       className="relative py-20 md:py-32 overflow-hidden"
-      style={{ background: "#111008" }}
+      style={{ background: "#FDFBF7" }}
     >
       {/* Atmospheric top glow */}
       <div
@@ -149,7 +149,7 @@ export default function Dishes() {
             <h2
               ref={titleRef}
               className="section-title font-heading font-extrabold gsap-animated"
-              style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#FFF8E7" }}
+              style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
             >
               Signature{" "}
               <span style={{ color: "#C9A84C" }}>Dishes</span>
@@ -158,7 +158,7 @@ export default function Dishes() {
           </div>
           <p
             className="font-body text-sm md:text-base max-w-sm text-left md:text-right"
-            style={{ color: "rgba(255,248,231,0.45)", lineHeight: 1.7 }}
+            style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
           >
             Each dish is a battle cry. Every plate — a royal banquet.
           </p>
@@ -172,14 +172,14 @@ export default function Dishes() {
               className="dish-card group relative flex flex-col p-6 md:p-8 rounded-sm overflow-hidden cursor-none gsap-animated"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(26,14,0,0.4) 0%, rgba(13,8,0,0.8) 100%)",
+                  "linear-gradient(180deg, rgba(255,248,231,0.4) 0%, rgba(255,248,231,0.9) 100%)",
                 border: "1px solid rgba(201,168,76,0.15)",
               }}
               whileHover={{
                 y: -5,
                 borderColor: "rgba(201,168,76,0.4)",
                 background:
-                  "linear-gradient(180deg, rgba(26,14,0,0.6) 0%, rgba(13,8,0,0.9) 100%)",
+                  "linear-gradient(180deg, rgba(255,248,231,0.6) 0%, #FFF8E7 100%)",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
@@ -202,7 +202,7 @@ export default function Dishes() {
                 <div>
                   <h3
                     className="font-heading font-bold text-2xl group-hover:text-gold transition-colors duration-300"
-                    style={{ color: "#FFF8E7" }}
+                    style={{ color: "#1A1A1A" }}
                   >
                     {dish.name}
                   </h3>
@@ -226,7 +226,7 @@ export default function Dishes() {
               {/* Description */}
               <p
                 className="font-body text-sm leading-relaxed flex-1 mb-6"
-                style={{ color: "rgba(255,248,231,0.6)" }}
+                style={{ color: "rgba(26,26,26,0.7)" }}
               >
                 {dish.desc}
               </p>
@@ -242,7 +242,7 @@ export default function Dishes() {
                         color: "rgba(201,168,76,0.7)",
                       }}
                     >
-                      {tag}{j < dish.tags.length - 1 && <span className="mx-1 text-white/20">|</span>}
+                      {tag}{j < dish.tags.length - 1 && <span className="mx-1 text-black/20">|</span>}
                     </span>
                   ))}
                 </div>

@@ -49,7 +49,7 @@ export default function Navbar() {
       transition={{ delay: 2.2, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${
         scrolled
-          ? "backdrop-blur-md bg-charcoal/85 border-b border-gold/20"
+          ? "backdrop-blur-md bg-cream/85 border-b border-gold/20"
           : "bg-transparent"
       }`}
     >
@@ -66,7 +66,7 @@ export default function Navbar() {
               src="/logo.png"
               alt="Hotel Shauryawada Logo"
               fill
-              className="object-contain"
+              className="object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
             />
           </div>
           <div className="flex flex-col leading-tight">
@@ -132,14 +132,14 @@ export default function Navbar() {
         initial={false}
         animate={menuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="md:hidden overflow-hidden bg-charcoal/95 backdrop-blur-md border-t border-gold/20"
+        className="md:hidden overflow-hidden bg-cream/95 backdrop-blur-md border-t border-gold/20"
       >
         <div className="flex flex-col gap-4 px-6 py-6">
           {NAV_LINKS.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNav(link.href)}
-              className="text-left text-cream text-lg font-heading hover:text-gold transition-colors"
+              className="text-left text-charcoal text-lg font-heading hover:text-saffron transition-colors"
             >
               {link.label}
             </button>

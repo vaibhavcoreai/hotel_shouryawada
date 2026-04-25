@@ -65,7 +65,7 @@ export default function YouTube() {
       ref={sectionRef}
       id="youtube"
       className="relative py-32 overflow-hidden"
-      style={{ background: "#0D0800" }}
+      style={{ background: "#FDFBF7" }}
     >
       {/* Top line */}
       <div
@@ -82,7 +82,7 @@ export default function YouTube() {
           <h2
             ref={titleRef}
             className="section-title font-heading font-extrabold gsap-animated"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#FFF8E7" }}
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
           >
             <span style={{ color: "#FF6B00" }}>930K+</span> Warriors
             <br />Join Our Kingdom
@@ -90,7 +90,7 @@ export default function YouTube() {
           <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
           <p
             className="font-body mt-6 max-w-xl"
-            style={{ color: "rgba(255,248,231,0.5)", lineHeight: 1.7 }}
+            style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
           >
             Watch the Raan being made. Witness the flavors. Follow our culinary journey across
             Maharashtra on YouTube.
@@ -102,7 +102,7 @@ export default function YouTube() {
           <motion.div
             className="yt-card gsap-animated rounded-sm overflow-hidden cursor-none"
             style={{
-              background: "linear-gradient(145deg, rgba(255,0,0,0.08), rgba(26,14,0,0.8))",
+              background: "linear-gradient(145deg, rgba(255,0,0,0.08), #FFF8E7)",
               border: "1px solid rgba(255,107,0,0.2)",
             }}
             whileHover={{
@@ -116,7 +116,7 @@ export default function YouTube() {
               className="relative flex items-center justify-center"
               style={{
                 aspectRatio: "16/9",
-                background: "linear-gradient(135deg, #1A0800, #2D1500, #0D0D0D)",
+                background: "linear-gradient(135deg, #FFF8E7, #FDFBF7, #F5DEB3)",
               }}
             >
               {/* Decorative text in background */}
@@ -148,7 +148,7 @@ export default function YouTube() {
                 </div>
                 <span
                   className="font-body text-sm tracking-widest uppercase"
-                  style={{ color: "rgba(255,248,231,0.7)" }}
+                  style={{ color: "rgba(26,26,26,0.8)" }}
                 >
                   Watch on YouTube
                 </span>
@@ -165,17 +165,17 @@ export default function YouTube() {
                   <YoutubeIcon size={18} />
                 </div>
                 <div>
-                  <p className="font-heading font-bold text-base" style={{ color: "#FFF8E7" }}>
+                  <p className="font-heading font-bold text-base" style={{ color: "#1A1A1A" }}>
                     Hotel Shauryawada Official
                   </p>
-                  <p className="text-xs font-body" style={{ color: "rgba(255,248,231,0.4)" }}>
+                  <p className="text-xs font-body" style={{ color: "rgba(26,26,26,0.5)" }}>
                     @Hotel_Shauryawada_Official
                   </p>
                 </div>
               </div>
               <p
                 className="font-body text-sm leading-relaxed"
-                style={{ color: "rgba(255,248,231,0.55)" }}
+                style={{ color: "rgba(26,26,26,0.7)" }}
               >
                 Behind-the-scenes kitchen tours, Raan cooking process, branch expansion vlogs,
                 and the raw energy of Maharashtra&apos;s most beloved dhaba chain.
@@ -197,7 +197,7 @@ export default function YouTube() {
                   key={i}
                   className="flex items-center gap-5 p-5 rounded-sm cursor-none"
                   style={{
-                    background: "rgba(255,248,231,0.03)",
+                    background: "rgba(26,26,26,0.03)",
                     border: "1px solid rgba(201,168,76,0.1)",
                   }}
                   whileHover={{
@@ -221,7 +221,7 @@ export default function YouTube() {
                     </p>
                     <p
                       className="font-body text-xs tracking-wider uppercase"
-                      style={{ color: "rgba(255,248,231,0.4)" }}
+                      style={{ color: "rgba(26,26,26,0.5)" }}
                     >
                       {stat.label}
                     </p>
@@ -247,7 +247,7 @@ export default function YouTube() {
 
             <p
               className="text-center text-xs font-body"
-              style={{ color: "rgba(255,248,231,0.3)" }}
+              style={{ color: "rgba(26,26,26,0.5)" }}
             >
               New episodes every week · Available on all devices
             </p>

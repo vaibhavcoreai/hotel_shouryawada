@@ -97,7 +97,7 @@ export default function About() {
       ref={sectionRef}
       id="about"
       className="relative py-20 md:py-32 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #1A1A1A 0%, #12080000 50%, #1A1A1A 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFF8E7 0%, transparent 50%, #FFF8E7 100%)" }}
     >
       {/* Background accent */}
       <div
@@ -114,7 +114,7 @@ export default function About() {
           <h2
             ref={titleRef}
             className="section-title font-heading font-extrabold"
-            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#FFF8E7" }}
+            style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
           >
             The{" "}
             <span style={{ color: "#FF6B00" }}>Shauryawada</span>{" "}
@@ -140,7 +140,7 @@ export default function About() {
               </p>
               <p
                 className="text-sm mt-1 font-body"
-                style={{ color: "rgba(255,248,231,0.5)" }}
+                style={{ color: "rgba(26,26,26,0.6)" }}
               >
                 Where there is valor, there is flavor.
               </p>
@@ -149,14 +149,14 @@ export default function About() {
             <div className="space-y-6">
               <p
                 className="font-body text-base md:text-lg leading-relaxed"
-                style={{ color: "rgba(255,248,231,0.75)" }}
+                style={{ color: "rgba(26,26,26,0.8)" }}
               >
                 Born from the red earth of Maharashtra, Hotel Shauryawada carries the soul of the
                 Maratha warrior — fiercely proud, deeply rooted, and generous to the core. We built a kingdom on a plate.
               </p>
               <p
                 className="font-body text-base md:text-lg leading-relaxed"
-                style={{ color: "rgba(255,248,231,0.75)" }}
+                style={{ color: "rgba(26,26,26,0.8)" }}
               >
                 Our signature <span style={{ color: "#FF6B00", fontWeight: 700 }}>Mutton Raan</span> and <span style={{ color: "#FF6B00", fontWeight: 700 }}>Chicken Raan</span> are not merely dishes — they are rituals, slow-roasted until the meat surrenders in smoky, golden perfection.
               </p>
@@ -170,7 +170,7 @@ export default function About() {
                     <pillar.icon size={16} color="#FF6B00" />
                     <h4 className="font-heading font-bold text-sm uppercase tracking-wider" style={{ color: "#C9A84C" }}>{pillar.title}</h4>
                   </div>
-                  <p className="text-[11px] font-body" style={{ color: "rgba(255,248,231,0.4)" }}>{pillar.desc}</p>
+                  <p className="text-[11px] font-body" style={{ color: "rgba(26,26,26,0.6)" }}>{pillar.desc}</p>
                 </div>
               ))}
             </div>
@@ -186,7 +186,7 @@ export default function About() {
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cream/ to-transparent" />
             </div>
 
             {/* Decorative elements */}

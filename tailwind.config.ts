@@ -23,7 +23,7 @@ const config: Config = {
       },
       backgroundImage: {
         "maratha-gradient":
-          "linear-gradient(135deg, #1A1A1A 0%, #2D1500 50%, #1A1A1A 100%)",
+          "linear-gradient(135deg, #FFF8E7 0%, #F5DEB3 50%, #FFF8E7 100%)",
       },
       animation: {
         "ember-drift": "emberDrift 4s ease-in-out infinite",

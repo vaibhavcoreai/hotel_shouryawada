@@ -1,11 +1,21 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { Shield, Award, Users } from "lucide-react";
+
+const bentoItems = [
+  { id: "1", img: "/Masonry/1-0aa0q2b4ck.jpg", className: "col-span-2 row-span-2" },
+  { id: "2", img: "/Masonry/1-0vlsvtdry6.jpg", className: "col-span-1 row-span-1" },
+  { id: "3", img: "/Masonry/1-0ylhh9ynlt.jpg", className: "col-span-1 row-span-1" },
+  { id: "4", img: "/Masonry/1-2suzb36roz.jpg", className: "col-span-1 row-span-2" },
+  { id: "5", img: "/Masonry/1-4yd13x47fy.jpg", className: "col-span-2 row-span-1" },
+  { id: "6", img: "/Masonry/1-65wt7y56xl.jpg", className: "col-span-1 row-span-1" },
+  { id: "7", img: "/Masonry/1-6b9b1avnfv.jpg", className: "col-span-1 row-span-1" },
+];
 
 const PILLARS = [
   {
@@ -31,6 +41,8 @@ export default function About() {
   const rightRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const underlineRef = useRef<HTMLSpanElement>(null);
+  
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -97,7 +109,7 @@ export default function About() {
       ref={sectionRef}
       id="about"
       className="relative py-20 md:py-32 overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #FFF8E7 0%, transparent 50%, #FFF8E7 100%)" }}
+      style={{ background: "linear-gradient(180deg, #FFF8E7 0%, transparent 100%)" }}
     >
       {/* Background accent */}
       <div
@@ -178,23 +190,68 @@ export default function About() {
 
           {/* Right: Visual Section */}
           <div ref={rightRef} className="relative">
-            <div className="relative aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden border border-gold/20 shadow-2xl">
-              <Image
-                src="/about.png"
-                alt="Shauryawada Restaurant Ambience"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-105"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-cream/ to-transparent" />
+            <div className="relative aspect-[4/3] md:aspect-square lg:aspect-[4/5] rounded-sm overflow-hidden border border-gold/20 shadow-2xl p-2 bg-[#1A1A1A]/5">
+              <div className="grid grid-cols-3 grid-rows-4 gap-2 h-full w-full">
+                {bentoItems.map((item) => (
+                  <div 
+                    key={item.id} 
+                    className={`relative rounded-[8px] overflow-hidden group cursor-pointer ${item.className}`}
+                    onClick={() => setSelectedImage(item.img)}
+                  >
+                    <Image
+                      src={item.img}
+                      alt="Gallery Image"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-gold/40" />
-            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-gold/40" />
+            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-2 border-l-2 border-gold/40 pointer-events-none" />
+            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-gold/40 pointer-events-none" />
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-5xl h-[85vh] rounded-lg overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={selectedImage}
+                alt="Selected Image full view"
+                fill
+                className="object-contain"
+                sizes="100vw"
+                quality={100}
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 text-white bg-black/50 p-2 rounded-full hover:bg-black/80 transition-colors z-10"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

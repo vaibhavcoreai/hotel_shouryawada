@@ -4,12 +4,28 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "../lib/gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Play, Users, TrendingUp } from "lucide-react";
+import { MapPin } from "lucide-react";
+import Image from "next/image";
 
-const YoutubeIcon = ({ size = 18 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+const Youtube = ({ size = 18, color = "currentColor" }: { size?: number, color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
     <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
     <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white" />
+  </svg>
+);
+
+const Instagram = ({ size = 18, className = "" }: { size?: number, className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const LinkIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
   </svg>
 );
 
@@ -44,14 +60,14 @@ export default function YouTube() {
           toggleActions: "play none none none",
         },
       });
-      gsap.from(".yt-card", {
+      gsap.from(".social-card", {
         y: 60,
         opacity: 0,
         stagger: 0.15,
         duration: 0.9,
         ease: "expo.out",
         scrollTrigger: {
-          trigger: ".yt-grid",
+          trigger: ".social-grid",
           start: "top 80%",
           toggleActions: "play none none none",
         },
@@ -63,7 +79,7 @@ export default function YouTube() {
   return (
     <section
       ref={sectionRef}
-      id="youtube"
+      id="socials"
       className="relative py-32 overflow-hidden"
       style={{ background: "#FDFBF7" }}
     >
@@ -84,174 +100,162 @@ export default function YouTube() {
             className="section-title font-heading font-extrabold gsap-animated"
             style={{ fontSize: "clamp(2rem, 5vw, 4rem)", color: "#1A1A1A" }}
           >
-            <span style={{ color: "#FF6B00" }}>930K+</span> Warriors
-            <br />Join Our Kingdom
+            Join Our <span style={{ color: "#FF6B00" }}>Kingdom</span>
           </h2>
           <span ref={underlineRef} className="section-underline mt-4 gsap-animated" />
           <p
             className="font-body mt-6 max-w-xl"
             style={{ color: "rgba(26,26,26,0.6)", lineHeight: 1.7 }}
           >
-            Watch the Raan being made. Witness the flavors. Follow our culinary journey across
-            Maharashtra on YouTube.
+            Follow our culinary journey across Maharashtra. Connect with us on Instagram and watch the Raan being made on YouTube.
           </p>
         </div>
 
-        <div className="yt-grid grid md:grid-cols-2 gap-8 items-start">
-          {/* Main channel card */}
+        <div className="social-grid grid xl:grid-cols-2 gap-8 items-stretch">
+          
+          {/* Instagram Card */}
           <motion.div
-            className="yt-card gsap-animated rounded-sm overflow-hidden cursor-none"
+            className="social-card gsap-animated rounded-2xl overflow-hidden cursor-none flex flex-col"
             style={{
-              background: "linear-gradient(145deg, rgba(255,0,0,0.08), #FFF8E7)",
-              border: "1px solid rgba(255,107,0,0.2)",
+              background: "#121212", 
+              border: "1px solid rgba(255,255,255,0.1)",
             }}
             whileHover={{
-              boxShadow: "0 20px 60px rgba(255,107,0,0.2)",
-              borderColor: "rgba(255,107,0,0.45)",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+              y: -5
             }}
             transition={{ type: "spring", stiffness: 200, damping: 20 }}
           >
-            {/* Thumbnail placeholder with play button */}
-            <div
-              className="relative flex items-center justify-center"
-              style={{
-                aspectRatio: "16/9",
-                background: "linear-gradient(135deg, #FFF8E7, #FDFBF7, #F5DEB3)",
-              }}
-            >
-              {/* Decorative text in background */}
-              <div
-                className="absolute inset-0 flex items-center justify-center overflow-hidden"
-                style={{ opacity: 0.06 }}
-              >
-                <span
-                  className="font-heading font-extrabold text-[8rem] text-center leading-none select-none"
-                  style={{ color: "#FF6B00" }}
-                >
-                  ॥ शौर्य ॥
-                </span>
-              </div>
-
-              <motion.a
-                href="https://www.youtube.com/@Hotel_Shauryawada_Official"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative z-10 flex flex-col items-center gap-4 cursor-none"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center"
-                  style={{ background: "#FF0000", boxShadow: "0 0 40px rgba(255,0,0,0.5)" }}
-                >
-                  <Play size={32} fill="white" color="white" />
-                </div>
-                <span
-                  className="font-body text-sm tracking-widest uppercase"
-                  style={{ color: "rgba(26,26,26,0.8)" }}
-                >
-                  Watch on YouTube
-                </span>
-              </motion.a>
-            </div>
-
-            {/* Channel info */}
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center"
-                  style={{ background: "#FF0000" }}
-                >
-                  <YoutubeIcon size={18} />
-                </div>
-                <div>
-                  <p className="font-heading font-bold text-base" style={{ color: "#1A1A1A" }}>
-                    Hotel Shauryawada Official
-                  </p>
-                  <p className="text-xs font-body" style={{ color: "rgba(26,26,26,0.5)" }}>
-                    @Hotel_Shauryawada_Official
-                  </p>
+            <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start flex-1">
+              {/* Profile Image with Gradient Border */}
+              <div className="relative shrink-0 mx-auto md:mx-0">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full p-1" style={{ background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" }}>
+                  <div className="w-full h-full rounded-full border-[3px] border-[#121212] overflow-hidden relative flex items-center justify-center bg-zinc-800">
+                    <Image src="/channels4_profile.jpg" alt="Vikas Nana Hande" fill className="object-cover" />
+                  </div>
                 </div>
               </div>
-              <p
-                className="font-body text-sm leading-relaxed"
-                style={{ color: "rgba(26,26,26,0.7)" }}
-              >
-                Behind-the-scenes kitchen tours, Raan cooking process, branch expansion vlogs,
-                and the raw energy of Maharashtra&apos;s most beloved dhaba chain.
-              </p>
+
+              {/* Profile Info */}
+              <div className="flex-1 flex flex-col gap-4 text-white w-full">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-body text-xl font-bold">hotel_shauryawada</h3>
+                      <Instagram size={18} className="opacity-80" />
+                    </div>
+                    <p className="font-body text-sm opacity-90">Vikas Nana Hande</p>
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="flex gap-4 sm:gap-6 font-body text-sm">
+                  <p><span className="font-bold">2,980</span> posts</p>
+                  <p><span className="font-bold">846K</span> followers</p>
+                  <p><span className="font-bold">656</span> following</p>
+                </div>
+
+                {/* Bio */}
+                <div className="font-body text-[13px] opacity-90 space-y-1.5 mt-1">
+                  <p className="flex items-start gap-1.5 leading-snug">
+                    <MapPin size={14} className="mt-[2px] shrink-0 text-[#FF6B00]" />
+                    <span>हांडेवाडी (Main), वाघोली, भोसरी, उरुळी-कांचन, अहिल्या नगर, लोणीकाळभोर (व्हेज), उमरगा, नाशिक, लोणावळा, खेड शिवापूर... more</span>
+                  </p>
+                  <p className="flex items-center gap-1.5 text-blue-400">
+                    <LinkIcon size={14} /> shorturl.at/Xrhww
+                  </p>
+
+                </div>
+
+                {/* Buttons */}
+                <div className="flex gap-3 mt-auto pt-4">
+                  <motion.a 
+                    href="https://instagram.com/hotel_shauryawada" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-[#0095f6] hover:bg-[#1877f2] text-white text-center py-2.5 rounded-lg font-body font-semibold text-sm transition-colors cursor-none"
+                  >
+                    Follow
+                  </motion.a>
+                  <motion.a 
+                    href="https://ig.me/m/hotel_shauryawada"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-[#363636] hover:bg-[#262626] text-white text-center py-2.5 rounded-lg font-body font-semibold text-sm transition-colors cursor-none"
+                  >
+                    Message
+                  </motion.a>
+                </div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Stats + Subscribe side */}
-          <div className="yt-card gsap-animated space-y-5">
-            {/* Stats */}
-            {[
-              { icon: Users, label: "Subscribers", value: "930K+", color: "#FF6B00" },
-              { icon: TrendingUp, label: "Monthly Views", value: "15M+", color: "#C9A84C" },
-              { icon: Play, label: "Videos Published", value: "200+", color: "#8B4513" },
-            ].map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={i}
-                  className="flex items-center gap-5 p-5 rounded-sm cursor-none"
-                  style={{
-                    background: "rgba(26,26,26,0.03)",
-                    border: "1px solid rgba(201,168,76,0.1)",
-                  }}
-                  whileHover={{
-                    x: 8,
-                    borderColor: "rgba(201,168,76,0.3)",
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                >
-                  <div
-                    className="w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0"
-                    style={{ background: `${stat.color}18`, border: `1px solid ${stat.color}40` }}
-                  >
-                    <Icon size={20} color={stat.color} />
+          {/* YouTube Card */}
+          <motion.div
+            className="social-card gsap-animated rounded-2xl overflow-hidden cursor-none flex flex-col"
+            style={{
+              background: "#121212", 
+              border: "1px solid rgba(255,255,255,0.1)",
+            }}
+            whileHover={{
+              boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
+              y: -5
+            }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          >
+            <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start flex-1">
+              {/* Profile Image with Red Border */}
+              <div className="relative shrink-0 mx-auto md:mx-0">
+                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full p-1" style={{ background: "#FF0000" }}>
+                  <div className="w-full h-full rounded-full border-[3px] border-[#121212] overflow-hidden relative flex items-center justify-center bg-zinc-800">
+                    <Image src="/channels4_profile.jpg" alt="Hotel Shauryawada Official" fill className="object-cover" />
                   </div>
+                </div>
+              </div>
+
+              {/* Profile Info */}
+              <div className="flex-1 flex flex-col gap-4 text-white w-full">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <p
-                      className="font-heading font-extrabold text-2xl"
-                      style={{ color: stat.color }}
-                    >
-                      {stat.value}
-                    </p>
-                    <p
-                      className="font-body text-xs tracking-wider uppercase"
-                      style={{ color: "rgba(26,26,26,0.5)" }}
-                    >
-                      {stat.label}
-                    </p>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="font-body text-xl font-bold">Hotel Shauryawada</h3>
+                      <Youtube size={20} color="#FF0000" />
+                    </div>
+                    <p className="font-body text-sm opacity-70">@Hotel_Shauryawada_Official</p>
                   </div>
-                </motion.div>
-              );
-            })}
+                </div>
 
-            {/* Subscribe CTA */}
-            <motion.a
-              href="https://www.youtube.com/@Hotel_Shauryawada_Official"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center justify-center gap-3 w-full py-4 rounded-sm font-body font-bold text-sm tracking-widest uppercase cursor-none"
-              style={{ background: "#FF0000", color: "white" }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            >
-              <YoutubeIcon size={18} />
-              Subscribe — Join the 930K
-            </motion.a>
+                {/* Stats */}
+                <div className="flex gap-4 sm:gap-6 font-body text-sm">
+                  <p><span className="font-bold">930K+</span> subscribers</p>
+                  <p><span className="font-bold">200+</span> videos</p>
+                </div>
 
-            <p
-              className="text-center text-xs font-body"
-              style={{ color: "rgba(26,26,26,0.5)" }}
-            >
-              New episodes every week · Available on all devices
-            </p>
-          </div>
+                {/* Bio */}
+                <div className="font-body text-[13px] opacity-90 space-y-1.5 mt-1">
+                  <p className="leading-snug">
+                    Behind-the-scenes kitchen tours, Raan cooking process, branch expansion vlogs, and the raw energy of Maharashtra's most beloved dhaba chain.
+                  </p>
+                  <p className="flex items-center gap-1.5 text-blue-400">
+                    <LinkIcon size={14} /> youtube.com/@Hotel_Shauryawada_Official
+                  </p>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex gap-3 mt-auto pt-4">
+                  <motion.a 
+                    href="https://www.youtube.com/@Hotel_Shauryawada_Official" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-white hover:bg-gray-200 text-black text-center py-2.5 rounded-full font-body font-bold text-sm transition-colors cursor-none"
+                  >
+                    Subscribe
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
